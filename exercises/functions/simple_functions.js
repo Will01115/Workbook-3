@@ -9,7 +9,7 @@ favoriteThings();
 function whyImHere() {
     console.log(
         `I really like the students and their attitudes 
-        and feel like I'm making a difference in their lives.`
+    and feel like I'm making a difference in their lives.`
     );
 }
 
