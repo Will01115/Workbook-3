@@ -33,16 +33,13 @@ test2B();
 //incorrect guess
 
 "use strict";
-let a = 4; //glbal
-
-
-
+let b = 4;
 function test3() {
-let a = 3; //re-assign glbal
- console.log("a = " + a);
+let b = 3;
+ console.log("a = " + b);
 }
 test3();
-console.log("a = " + a);
+console.log("a = " + b);
 
 //semi correct
 
@@ -72,7 +69,7 @@ function test5() {
 test5();
 console.log("a = " + d);
 
-//correct guess
+//currect guess
 
 
 "use strict";
@@ -88,7 +85,3 @@ function test6() {
 }
 test6();
 console.log("a = " + e);
-
-
-
-//correct guess
