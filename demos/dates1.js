@@ -22,5 +22,9 @@ console.log(date.toLocaleDateString());
 console.log(date.toLocaleTimeString());
 console.log(date.toLocaleString());
 
+let anticipatedDate = new Date(2023, 5, 22, 15, 30,10);
+console.log(anticipatedDate.toString());
 
 
+let anotherDate = new Date ("2023-06-22T07:15:10Z")
+console.log(anotherDate.toString());
