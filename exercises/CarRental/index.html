@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+
+    <h1>ACME Car Rental</h1>
+<body>
+    <label for="PickupDate">Pickup Date:</label>
+    <input type="text">
+
+    <label for="NumberOfDays">Number Of Days:</label>
+    <input type="text" id="numberOfDays" name="numberOfDays">
+    <main class="container">
+        <fieldset>
+            <legend>Options</legend>
+
+            <input type="checkbox" id="tollTag" name="tollTag" value="tolltag" checked>
+            <label for="tollTag">Electronic Toll Tag ($3.95/day
+                plus tolls)</label>
+            <br>
+
+            <input type="checkbox" id="gps" name="gps" value="gls">
+            <label for="gps"> GPS ($4.95/day)</label>
+            <br>
+
+            <input type="checkbox" id="roadside" name="roadside" value="roadside">
+            <label for="roadside">Roadside Assistance ($2.95/day)
+            </label>
+            <br>
+        </fieldset>
+       
+
+        <section id="ageCheckSection">
+            <label for="under25">Under 25</label>
+            <input type="radio" name="ageCheck" id="noBtn" value="1.00">
+            <label for="noBtn">No</label>
+            <input type="radio" name="ageCheck" id="yesBtn" value="1.30">
+            <label for="yestBtn">Yes</label>
+        </section>
+        <button id="estimateCost" onclick="estimateCost();">Estimate Total Cost</button>
+        <p id="resultParagraph"></p>
+    </main> 
+    <script>
+
+        function estimateCost() {
+            let totalCost = 0;
+            let basicCarRentalCost = 29.99;
+            let numberOfDaysInput = document.getElementById("numberOfDays")
+            let numberOfDays = Number(numberOfDaysInput.value);
+            
+            let selectedAge = 
+                document.querySelector("input[name='ageCheck']:checked");
+            let ageCheckMultiplier = 1;
+
+            if (selectedAge) {
+                 ageCheckMultiplier = Number(selectedAge.value);
+
+            } else{
+                document.getElementById("resultParagraph").innerText = "Are you under 25?"
+                return
+            }
+            
+            basicCarRentalCost = basicCarRentalCost * ageCheckMultiplier;
+            totalCost = basicCarRentalCost * numberOfDays; 
+
+            let tollTag = document.getElementById("tollTag").checked;
+            if (tollTag == true) {
+                totalCost += 3.95;
+            }
+            let gps = document.getElementById("gps").checked;
+            if (gps == true) {
+                totalCost += 4.95;
+            }
+            let roadside = document.getElementById("roadside").checked;
+            if (roadside == true) {
+                totalCost += 2.95;
+            }
+            document.getElementById("resultParagraph").innerText = "Total Due: $" + totalCost.toFixed(2);
+        }
+
+
+    </script>
+
+</body>
+
+</html>
